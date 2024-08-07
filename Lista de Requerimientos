@@ -18,4 +18,5 @@ pip install opencv-python
 pip install --upgrade opencv-contrib-python
 pip install opencv-python mediapipe
 
-#Para FaceID3
+#Si se quiere ejecutar el codigo para prueba 
+ (myenv)[ruta actual del proyecto]> python FaceID2.py
