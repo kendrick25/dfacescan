@@ -1,4 +1,6 @@
 # Windows
+#Instalar python, si estas en window intalar 
+ la ultima version de python en nuestro caso la version de python 3.12
 # Ubicarse en la carpeta donde se tenga almacenado el proyecto
 cd D:\2024\Reconocimiento
 #Crear un entorno para realizar las pruebas con python
