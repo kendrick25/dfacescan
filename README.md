@@ -1,6 +1,7 @@
 # IA-de-reconocimiento
 Proyecto de reconocimiento de estudiantes para asistencia autónoma
-
+# Flujo de Trabajo
+![alt text](\ImagenesPrueba\Untitled-2024-08-11-1437.png)
 # Windows
 
 # Instalar python, si estas en window intalar 
@@ -32,7 +33,7 @@ Proyecto de reconocimiento de estudiantes para asistencia autónoma
 
     #Para FaceID4
     pip install opencv-python opencv-python-headless numpy
-    
+
 # Prueba de libreria DeepFace
     pip install deepface
     pip uninstall tensorflow
