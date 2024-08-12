@@ -1,7 +1,7 @@
 # IA-de-reconocimiento
 Proyecto de reconocimiento de estudiantes para asistencia autónoma
 # Flujo de Trabajo
-![alt text](\ImagenesPrueba\Untitled-2024-08-11-1437.png)
+![Diagrama de Flujo](ImagenesPrueba\Untitled-2024-08-11-1437.png)
 # Windows
 
 # Instalar python, si estas en window intalar 
