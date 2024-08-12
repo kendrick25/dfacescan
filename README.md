@@ -30,7 +30,7 @@ Proyecto de reconocimiento de estudiantes para asistencia autónoma
     pip install --upgrade opencv-contrib-python
     pip install opencv-python mediapipe
 
-    #Para FaceID3
+    #Para FaceID4
     pip install opencv-python opencv-python-headless numpy
 # Prueba de libreria DeepFace
     pip install deepface
