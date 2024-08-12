@@ -30,5 +30,13 @@ Proyecto de reconocimiento de estudiantes para asistencia autónoma
     pip install --upgrade opencv-contrib-python
     pip install opencv-python mediapipe
 
+    #Para FaceID3
+    pip install opencv-python opencv-python-headless numpy
+# Prueba de libreria DeepFace
+    pip install deepface
+    pip uninstall tensorflow
+    pip install tensorflow
+    pip install --upgrade tensorflow
+    pip install --upgrade deepface
 # Si se quiere ejecutar el codigo para alguna prueba 
     (myenv)[ruta actual del proyecto]> python [nombre del ejecutable].py
