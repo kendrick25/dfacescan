@@ -32,6 +32,7 @@ Proyecto de reconocimiento de estudiantes para asistencia autónoma
 
     #Para FaceID4
     pip install opencv-python opencv-python-headless numpy
+    
 # Prueba de libreria DeepFace
     pip install deepface
     pip uninstall tensorflow

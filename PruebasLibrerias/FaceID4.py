@@ -4,7 +4,7 @@ import os
 
 # Configuración de rutas
 input_image_path = r'D:\Nueva carpeta\Prueba\IA-de-reconocimiento\ImagenesPrueba\img2.jpg'
-output_directory = r'D:\Nueva carpeta\Prueba\IA-de-reconocimiento\myenv\ImagenesProcesadas'
+output_directory = r'D:\Nueva carpeta\Prueba\IA-de-reconocimiento\PruebasLibrerias\ImagenesProcesadas'
 
 # Crear directorio de salida si no existe
 if not os.path.exists(output_directory):
