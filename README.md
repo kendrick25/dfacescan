@@ -4,44 +4,44 @@ Proyecto de reconocimiento de estudiantes para asistencia autónoma
 # Flujo de Trabajo
 ![Diagrama de Flujo](ImagenesPrueba/flujo.png)
 
-
 # Windows
 
-# Instalar python, si estas en window intalar 
-     la ultima version de python en nuestro caso la version de python 3.12
+# Instalar Python
+Si estás en Windows, instala la última versión de Python, en nuestro caso la versión de Python 3.12.
 
-# En la terminal Ubicarse en la carpeta donde se tenga almacenado el proyecto
+# En la terminal, ubicarse en la carpeta donde se tenga almacenado el proyecto
     cd D:\2024\Reconocimiento
 
-# Crear un entorno para realizar las pruebas con python
+# Crear un entorno para realizar las pruebas con Python
     python -m venv myenv
 
-# Si es necesario brindar los permisos de politica para activar el entorno
+# Si es necesario, brindar los permisos de política para activar el entorno
     Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
 
-# Para activar el Scripts
+# Para activar el entorno
     myenv\Scripts\activate
 
-# Prueba de libreria de opencv y mediapipe
-    #Instalar las librerias necesarias
+# Prueba de librería de OpenCV y MediaPipe
+    # Instalar las librerías necesarias
 
-    #Para FaceID
+    # Para FaceID
     python -m pip install --upgrade pip
     pip install --upgrade opencv-python-headless
 
-    #Para FaceID2
+    # Para FaceID2
     pip install opencv-python
     pip install --upgrade opencv-contrib-python
     pip install opencv-python mediapipe
 
-    #Para FaceID4
+    # Para FaceID4
     pip install opencv-python opencv-python-headless numpy
 
-# Prueba de libreria DeepFace
+# Prueba de librería DeepFace
     pip install deepface
     pip uninstall tensorflow
     pip install tensorflow
     pip install --upgrade tensorflow
     pip install --upgrade deepface
-# Si se quiere ejecutar el codigo para alguna prueba 
+
+# Si se quiere ejecutar el código para alguna prueba
     (myenv)[ruta actual del proyecto]> python [nombre del ejecutable].py
