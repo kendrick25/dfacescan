@@ -35,6 +35,4 @@ pip install retina-face
 --Tensorflow
 conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
 python -m pip install "tensorflow<2.11"
-
-
 ```
