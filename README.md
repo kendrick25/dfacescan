@@ -22,6 +22,7 @@ Si estás en Windows, instala la última versión de Python, en nuestro caso la 
     myenv\Scripts\activate
 
 ## Prueba de librería de OpenCV y MediaPipe
+    ```python
     python=3.12.3
     # Instalar las librerías necesarias
 
@@ -36,9 +37,10 @@ Si estás en Windows, instala la última versión de Python, en nuestro caso la 
 
     # Para FaceID4
     pip install opencv-python opencv-python-headless numpy
-
+    ```
 ## Prueba de librería DeepFace
-    #### Pasos para instalación de dfsd
+    ```python
+    # Pasos para instalación de dfsd
 
     Requisitos
 
@@ -63,8 +65,9 @@ Si estás en Windows, instala la última versión de Python, en nuestro caso la 
     Para ejecutar test.py
 
     python3 test.py
-
-## Prueba en jupiter
+    ```
+## Prueba en Jupyter- Retina Face
+    
     #Creacción del entorno
     conda create --name face python=3.10.8
 
@@ -86,3 +89,5 @@ Si estás en Windows, instala la última versión de Python, en nuestro caso la 
 ## Si se quiere ejecutar el código para alguna prueba
     (myenv)[ruta actual del proyecto]> python [nombre del ejecutable].py
 
+> **NOTA!**  
+> Cada prueba de libreria se hiso en un entorn myenv , para controlar las versiones de cada entorno y instalar solo las librerias necesarias.
