@@ -89,5 +89,5 @@ Si estás en Windows, instala la última versión de Python, en nuestro caso la 
 ## Si se quiere ejecutar el código para alguna prueba
     (myenv)[ruta actual del proyecto]> python [nombre del ejecutable].py
 
-> **NOTA**  
-> Cada prueba de libreria se hiso en un entorn myenv , para controlar las versiones de cada entorno y instalar solo las librerias necesarias.
+> ** NOTA **
+> Cada prueba de libreria se hiso en un entorno myenv diferente, para controlar las versiones de cada entorno y instalar solo las librerias necesarias.
