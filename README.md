@@ -76,12 +76,12 @@ pip install opencv-python mediapipe
 pip install opencv-python opencv-python-headless numpy
 ```
 
-### 4. Prueba con DeepFace
+### 4. Prueba con DSFD 
 
-Esta sección cubre la instalación y configuración de DeepFace para pruebas.
+Esta sección cubre la instalación y configuración de DSFD  para pruebas.
 
 #### 4.1. Requisitos de Python
-DeepFace requiere una versión específica de Python:
+DSFD  requiere una versión específica de Python:
 
 ```bash
 python 3.8
