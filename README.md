@@ -38,7 +38,7 @@ Si estás en Windows, instala la última versión de Python, en nuestro caso la 
     # Para FaceID4
     pip install opencv-python opencv-python-headless numpy
 
-## Prueba de librería DeepFace
+## Prueba de librería DSFD 
 
     # Pasos para instalación de dfsd
 
@@ -47,7 +47,7 @@ Si estás en Windows, instala la última versión de Python, en nuestro caso la 
     python 3.8
 
     # librerías pytorch torchvision torchaudio cudatoolkit opencv
-
+  
     conda install pytorch torchvision torchaudio cudatoolkit=11.8 -c pytorch  
 
     conda install conda-forge::opencv
@@ -55,6 +55,7 @@ Si estás en Windows, instala la última versión de Python, en nuestro caso la 
     # Instalar el repo
 
     pip install git+https://github.com/hukkelas/DSFD-Pytorch-Inference.git
+      pip install . 
 
     # Para correr el programa se necesita el test.py y un directorio llamado images/ con las imagenes a procesar
 
