@@ -39,16 +39,17 @@ Este proyecto requiere las siguientes dependencias:
 Para instalarlas, puedes usar pip:
 ```bash
 pip install opencv-python imutils
+```
 Uso
 1. Detección y almacenamiento de rostros
 Ejecuta el script Base_Data_Image.py para detectar rostros en las imágenes de una carpeta y almacenarlos en la carpeta correspondiente para cada persona.
 
-bash
-Copiar código
+```bash
 python Base_Data_Image.py
+```
 2. Preparación para el entrenamiento
 Ejecuta el script Entrenamiento.py para leer las imágenes de los rostros y preparar los datos para el entrenamiento.
 
-bash
-Copiar código
+```bash
 python Entrenamiento.py
+```
