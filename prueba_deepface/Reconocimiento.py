@@ -13,9 +13,9 @@ metrics = ["cosine", "euclidean", "euclidean_l2"]
 models = ["Facenet", "Facenet512", "VGG-Face", "OpenFace", "DeepFace", "DeepID", "ArcFace", "Dlib", "SFace", "GhostFaceNet"]
 
 # Ruta de la imagen original y del rostro objetivo (face_target)
-image_path = "D:/Nueva carpeta/Archivos UTP/PruebaDeepface/test/ik.jpeg"
-face_target_path = "D:/Nueva carpeta/Archivos UTP/PruebaDeepface/data/Thais/11.jpg"
-output_path = "D:/Nueva carpeta/Archivos UTP/PruebaDeepface/Resultados/result_image.png"  # Ruta para guardar la imagen resultante
+image_path = "D:/Nueva carpeta/Archivos UTP/prueba_deepface/test/ik.jpeg"
+face_target_path = "D:/Nueva carpeta/Archivos UTP/prueba_deepface/data/Thais/11.jpg"
+output_path = "D:/Nueva carpeta/Archivos UTP/prueba_deepface/Resultados/result_img-00.jpg"  # Ruta para guardar la imagen resultante
 
 # Cargar la imagen original
 image = cv2.imread(image_path)

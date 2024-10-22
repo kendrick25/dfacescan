@@ -1,0 +1,95 @@
+import os 
+import tensorflow as tf
+import warnings
+import cv2
+import numpy as np
+from deepface import DeepFace
+
+# Deshabilita el uso de GPU
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"  
+# Suprime advertencias de TensorFlow
+tf.get_logger().setLevel('ERROR')  
+# Suprime advertencias generales
+warnings.filterwarnings("ignore")  
+
+# Ruta de la carpeta que contiene las imágenes de prueba
+test_folder = "D:/Nueva carpeta/Archivos UTP/PruebaDeepface/test/"
+# Ruta de la carpeta que contiene los rostros objetivo (subcarpetas de diferentes personas)
+data_folder = "D:/Nueva carpeta/Archivos UTP/PruebaDeepface/data/"
+output_folder = "D:/Nueva carpeta/Archivos UTP/PruebaDeepface/Resultados/"  # Ruta para guardar las imágenes resultantes
+
+# Inicializar la lista para almacenar los resultados
+results = []
+
+# Iterar a través de cada archivo en la carpeta de test
+for filename in os.listdir(test_folder):
+    if filename.endswith(".jpg") or filename.endswith(".png"):  # Solo procesar imágenes
+        image_path = os.path.join(test_folder, filename)
+        
+        # Cargar la imagen original
+        print(f"Processing image: {image_path}")
+        image = cv2.imread(image_path)
+
+        # Extraer los rostros de la imagen original
+        print("Extracting faces from the original image...")
+        faces = DeepFace.extract_faces(img_path=image_path, detector_backend='retinaface', enforce_detection=True)
+
+        # Iterar a través de cada subcarpeta en la carpeta data
+        for person_folder in os.listdir(data_folder):
+            person_folder_path = os.path.join(data_folder, person_folder)
+
+            if os.path.isdir(person_folder_path):  # Verificar que sea un directorio
+                # Iterar sobre cada archivo en la subcarpeta de la persona
+                for data_filename in os.listdir(person_folder_path):
+                    if data_filename.endswith(".jpg") or data_filename.endswith(".png"):  # Solo procesar imágenes
+                        face_target_path = os.path.join(person_folder_path, data_filename)
+
+                        # Extraer el rostro objetivo (face_target) de la imagen de referencia
+                        print(f"Extracting target face from: {face_target_path}")
+                        target_face_data = DeepFace.extract_faces(img_path=face_target_path, detector_backend='retinaface', enforce_detection=True)
+
+                        # Asegurarse de que se detectó el rostro objetivo
+                        if len(target_face_data) > 0:
+                            target_face = target_face_data[0]['face']  # Obtener el rostro objetivo
+
+                            # Obtener la información del rostro objetivo
+                            R1, G1, B1 = target_face.T
+                            __bgr_target_face = np.array((B1, G1, R1)).T
+                            bgr_target_face = (__bgr_target_face * 255).astype(np.uint8)
+
+                            # Iterar sobre cada rostro detectado en la imagen
+                            for i, face_data in enumerate(faces):
+                                facial_area = face_data['facial_area']  # Obtener el área facial (bounding box)
+                                face = face_data['face']  # Obtener el rostro extraído
+
+                                # Obtener la información del rostro detectado
+                                R, G, B = face.T
+                                __bgr_face = np.array((B, G, R)).T
+                                bgr_face = (__bgr_face * 255).astype(np.uint8)
+
+                                # Realizar la comparación (verificación) entre el rostro detectado y el rostro objetivo
+                                result = DeepFace.verify(
+                                    img1_path=bgr_target_face,
+                                    img2_path=bgr_face,
+                                    detector_backend="skip",  # Omitir la detección ya que están los rostros
+                                    model_name="Facenet512",
+                                    distance_metric="cosine",
+                                    threshold=0.49,
+                                    enforce_detection=True
+                                )
+
+                                results.append([person_folder, data_filename, filename, i, result['distance'], result['threshold'], 'cosine'])
+
+                                # Dibujar un rectángulo verde si coinciden, rojo si no coinciden
+                                x, y, w, h = facial_area['x'], facial_area['y'], facial_area['w'], facial_area['h']
+                                color = (0, 255, 0) if result['verified'] else (0, 0, 255)
+
+                                # Dibujar el rectángulo en la imagen original
+                                cv2.rectangle(image, (x, y), (x + w, y + h), color, 2)
+
+        # Guardar la imagen resultante en la ruta especificada
+        output_path = os.path.join(output_folder, f"result_{filename}")
+        cv2.imwrite(output_path, image)
+        print(f"Image saved at: {output_path}")
+
+print("\nProcessing complete.")
