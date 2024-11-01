@@ -37,7 +37,7 @@ pip install -r requirements.txt
 >```powershell
 >Python 3.10.15
 >```
-## versifica los paquetes instalados
+###### Verifica los paquetes instalados:
 ```powershell
 python versions.py
 ```
