@@ -1,6 +1,6 @@
 import joblib 
 import numpy as np
-from sklearn.svm import SVC
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report
@@ -9,8 +9,8 @@ import json
 from datetime import datetime
 import time
 
-def train_svm_classifier(embeddings, labels):
-    print("Entrenando clasificador SVM...")
+def train_random_forest_classifier(embeddings, labels):
+    print("Entrenando clasificador Random Forest...")
     label_encoder = LabelEncoder()
     y_encoded = label_encoder.fit_transform(labels)
 
@@ -30,22 +30,17 @@ def train_svm_classifier(embeddings, labels):
     print(f"Tamaño del conjunto de entrenamiento: {len(y_train)}")
     print(f"Tamaño del conjunto de validación: {len(y_val)}")
 
-    classifier = SVC(kernel='linear', probability=True)
+    # Entrenar Random Forest
+    classifier = RandomForestClassifier(n_estimators=100, random_state=42)
     classifier.fit(X_train, y_train)
-    
+
     print("Entrenamiento completado. Evaluando en el conjunto de validación...")
     y_pred = classifier.predict(X_val)
     accuracy = accuracy_score(y_val, y_pred)
     print(f"Precisión en el conjunto de validación: {accuracy:.2f}")
 
     # Generar el informe de clasificación
-    unique_classes_in_val = np.unique(y_val)
-    if len(unique_classes_in_val) < 2:
-        print("Solo se encontró una clase en el conjunto de validación. Usando solo las clases presentes.")
-        target_names = label_encoder.inverse_transform(unique_classes_in_val)
-    else:
-        target_names = label_encoder.inverse_transform(unique_classes)
-
+    target_names = label_encoder.inverse_transform(unique_classes)
     class_report = classification_report(
         y_val, 
         y_pred, 
@@ -68,9 +63,13 @@ if __name__ == "__main__":
     load_time = time.time() - start_time
     print("Embeddings y etiquetas cargados.")
 
+    # Verificar dimensiones de embeddings y labels
+    print(f"Dimensiones de embeddings: {embeddings.shape}")
+    print(f"Dimensiones de labels: {labels.shape}")
+
     # Entrenar clasificador y guardar modelos
     start_training_time = time.time()
-    classifier, label_encoder, accuracy, class_report = train_svm_classifier(embeddings, labels)
+    classifier, label_encoder, accuracy, class_report = train_random_forest_classifier(embeddings, labels)
     training_time = time.time() - start_training_time
 
     # Guardar el clasificador y el codificador de etiquetas
@@ -111,4 +110,4 @@ if __name__ == "__main__":
     with open(report_path, 'w') as f:
         json.dump(report, f, indent=4)
 
-    print("Modelo de clasificador SVM y codificador de etiquetas guardados en 'models/'. Informe guardado en 'informe/train_classifier_report.json'")
+    print("Modelo de clasificador Random Forest y codificador de etiquetas guardados en 'models/'. Informe guardado en 'informe/train_classifier_report.json'")

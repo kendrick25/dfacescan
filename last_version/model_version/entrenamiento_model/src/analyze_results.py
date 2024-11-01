@@ -1,4 +1,4 @@
-import json 
+import json  
 import os
 import matplotlib.pyplot as plt
 import numpy as np
@@ -41,10 +41,19 @@ def analyze_generate_embeddings_report(report, report_dir):
 
 def analyze_train_classifier_report(report, report_dir):
     print("\n--- Análisis de Train Classifier Report ---")
+    
+    # Extraer la precisión y los reportes de clase
     accuracy = report.get("accuracy", 0)
     class_report = report.get("class_report", {})
     load_time = report.get("load_time_seconds", 0)
     training_time = report.get("training_time_seconds", 0)
+
+    # Verificar dimensiones
+    num_classes = len(class_report)
+    print(f"Número de clases: {num_classes}")
+    
+    if num_classes == 0:
+        print("Advertencia: No se encontraron clases en el informe del clasificador.")
     
     print(f"Precisión del clasificador: {accuracy:.2f}")
     print(f"Tiempo de carga: {load_time:.2f} segundos")
@@ -86,7 +95,7 @@ def analyze_train_classifier_report(report, report_dir):
     # Generar informe de texto
     with open(os.path.join(report_dir, 'model_analysis.txt'), 'w', encoding='utf-8') as f:
         f.write('--- Análisis del Modelo ---\n\n')
-        f.write(f'Total de clases: {len(class_report)}\n\n')
+        f.write(f'Total de clases: {num_classes}\n\n')
         f.write(f'Precisión del clasificador: {accuracy:.2f}\n\n')
         f.write(f'Tiempo de carga: {load_time:.2f} segundos\n\n')
         f.write(f'Tiempo de entrenamiento: {training_time:.2f} segundos\n\n')
@@ -103,34 +112,19 @@ def analyze_train_classifier_report(report, report_dir):
         f.write(f"Macro Avg - Precision: {macro_avg['precision']:.2f}, Recall: {macro_avg['recall']:.2f}, F1-Score: {macro_avg['f1-score']:.2f}, Support: {macro_avg['support']}\n")
         f.write(f"Weighted Avg - Precision: {weighted_avg['precision']:.2f}, Recall: {weighted_avg['recall']:.2f}, F1-Score: {weighted_avg['f1-score']:.2f}, Support: {weighted_avg['support']}\n\n")
 
-        f.write('--- Resumen del Análisis ---\n\n')
-        # Calcular la precisión promedio solo si hay precisiones disponibles
-        if precision:
-            avg_precision = np.mean(precision)
-            avg_recall = np.mean(recall)
-            avg_f1 = np.mean(f1_score)
-            f.write(f'Precisión promedio del modelo: {avg_precision:.2f}\n\n')
-            f.write(f'Porcentaje de precisión general: {avg_precision * 100:.2f}%\n\n')
-            f.write(f'Recall promedio del modelo: {avg_recall:.2f}\n\n')
-            f.write(f'F1-Score promedio del modelo: {avg_f1:.2f}\n\n')
-
         # Evaluación dinámica del modelo
         f.write('--- Evaluación del Modelo ---\n\n')
-        if avg_precision == 1.0 and avg_recall == 1.0 and avg_f1 == 1.0:
+        avg_precision = np.mean(precision) if precision else 0
+        if avg_precision == 1.0:
             f.write('El modelo ha demostrado un rendimiento excepcional en la clasificación de las clases evaluadas.\n\n')
-            f.write('Con una precisión del 100% y métricas de recall y F1-Score también en el 100%, podemos concluir que el modelo\n')
-            f.write('está altamente optimizado y es capaz de identificar correctamente todas las clases presentes en el conjunto de datos de prueba.\n\n')
         elif avg_precision >= 0.9:
             f.write('El modelo ha mostrado un buen rendimiento, con una precisión promedio superior al 90%.\n\n')
-            f.write('Sin embargo, se recomienda realizar más pruebas para verificar la robustez del modelo en condiciones diferentes.\n\n')
         elif avg_precision >= 0.75:
             f.write('El modelo ha demostrado un rendimiento aceptable con una precisión promedio superior al 75%.\n\n')
-            f.write('Sin embargo, se pueden realizar mejoras para optimizar la clasificación en algunos casos.\n\n')
         else:
             f.write('El modelo ha tenido un rendimiento por debajo de las expectativas, con una precisión promedio inferior al 75%.\n\n')
-            f.write('Se recomienda revisar los datos y el proceso de entrenamiento para mejorar la clasificación.\n\n')
 
-        # Agregar leyenda de términos
+        # Leyenda de términos
         f.write('--- Leyenda de Términos ---\n\n')
         f.write('-' * 110 + '\n')
         f.write(f"{'| Término      |':<15} {'Descripción                                                                                 |'}\n")

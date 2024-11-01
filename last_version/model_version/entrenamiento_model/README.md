@@ -3,6 +3,22 @@
 Este proyecto utiliza el modelo preentrenado FaceNet512 para generar embeddings faciales y un clasificador SVM para reconocer rostros.
 
 ## Estructura del Proyecto
+```txt
+entrenamiento_model/
+├── data/
+│   ├── scarlett-johansson/
+│   │   ├── scarlett-johansson_rostro_0.jpg
+│   │   ├── scarlett-johansson_rostro_1.jpg
+│   └── Thais/
+│       ├── Thais_rostro_0.jpg
+│       └── Thais_rostro_1.jpg
+├── models/
+└── src/
+│   ├── load_data.py
+│   ├── generate_embeddings.py
+│   ├── train_classifier.py
+│   └── analyze_results.py
+```
 - `data/`: Contiene las imágenes de rostros organizadas en carpetas por persona.
 - `src/`: Contiene los scripts para cargar datos, generar embeddings y entrenar el clasificador.
 - `models/`: Almacena el clasificador entrenado y el codificador de etiquetas.
