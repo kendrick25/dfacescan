@@ -21,6 +21,15 @@ Tiempo de entrenamiento: 0.46 segundos
 
 El modelo ha demostrado un rendimiento excepcional en la clasificación de las clases evaluadas.
 
+
+## Análisis de Gráficos
+
+### Gráfico de Personas Detectadas
+![Gráfico de personas detectadas](generate_embeddings_analysis.png)
+
+### Análisis del Clasificador por Clase
+![Análisis del clasificador](train_classifier_analysis.png)
+
 ## Leyenda de Términos
 
 | Término      | Descripción                                                                                 |
@@ -31,12 +40,3 @@ El modelo ha demostrado un rendimiento excepcional en la clasificación de las c
 | **Support**      | El número de ocurrencias de cada clase en el conjunto de datos.                             |
 | **Macro Avg**    | Promedio simple de precisión, recall y F1-Score para cada clase, sin considerar el soporte. |
 | **Weighted Avg** | Promedio ponderado de precisión, recall y F1-Score, considerando el soporte de cada clase.  |
-
-## Análisis de Gráficos
-
-### Gráfico de Personas Detectadas
-![Gráfico de personas detectadas](generate_embeddings_analysis.png)
-
-### Análisis del Clasificador por Clase
-![Análisis del clasificador](train_classifier_analysis.png)
-

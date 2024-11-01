@@ -120,6 +120,13 @@ def analyze_train_classifier_report(report, report_dir):
         else:
             f.write('El modelo ha tenido un rendimiento por debajo de las expectativas, con una precisión promedio inferior al 75%.\n\n')
 
+        # Agregar imágenes
+        f.write('\n## Análisis de Gráficos\n\n')
+        f.write('### Gráfico de Personas Detectadas\n')
+        f.write('![Gráfico de personas detectadas](generate_embeddings_analysis.png)\n\n')
+        f.write('### Análisis del Clasificador por Clase\n')
+        f.write('![Análisis del clasificador](train_classifier_analysis.png)\n\n')
+        
         # Leyenda de términos
         f.write('## Leyenda de Términos\n\n')
         f.write('| Término      | Descripción                                                                                 |\n')
@@ -131,12 +138,6 @@ def analyze_train_classifier_report(report, report_dir):
         f.write('| **Macro Avg**    | Promedio simple de precisión, recall y F1-Score para cada clase, sin considerar el soporte. |\n')
         f.write('| **Weighted Avg** | Promedio ponderado de precisión, recall y F1-Score, considerando el soporte de cada clase.  |\n')
 
-        # Agregar imágenes
-        f.write('\n## Análisis de Gráficos\n\n')
-        f.write('### Gráfico de Personas Detectadas\n')
-        f.write('![Gráfico de personas detectadas](generate_embeddings_analysis.png)\n\n')
-        f.write('### Análisis del Clasificador por Clase\n')
-        f.write('![Análisis del clasificador](train_classifier_analysis.png)\n\n')
 
 if __name__ == "__main__":
     # Rutas de los informes
