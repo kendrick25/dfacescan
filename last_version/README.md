@@ -1,4 +1,4 @@
-## Estructura de carpetas necesarias para el la deteción de forma comparativa
+## Estructura de carpetas necesarias para el la deteción de forma comparativa con Facenet512 y RetinaFace
 ```txt
 prueba_deepface/
 ├── data/
@@ -21,9 +21,11 @@ numpy==1.26.4
 tensorflow==2.10.1
 tensorflow-cpu==2.10.1
 retina-face==0.0.17
+scikit-learn
 scipy
 matplotlib
 imutils
+joblib
 ```
 #### Ejecutar en consola:
 ```powershell
@@ -35,40 +37,7 @@ pip install -r requirements.txt
 >```powershell
 >Python 3.10.15
 >```
-
->[!TIP] 
->Estamos trabajando en la version:
->```powershell
->Python 3.10.15
->```
-
->[!IMPORTANT] 
->Estamos trabajando en la version:
->```powershell
->Python 3.10.15
->```
-
->[!WARNING] 
->Estamos trabajando en la version:
->```powershell
->Python 3.10.15
->```
-
->[!CAUTION] 
->Estamos trabajando en la version:
->```powershell
->Python 3.10.15
->```
-## Parametros del codigo a tomar en cuenta
-```python
-# Realizar la comparación entre el rostro detectado y el rostro objetivo
-result = DeepFace.verify(
-    img1_path=bgr_target_face,
-    img2_path=bgr_face,
-    detector_backend="skip",  # Omitir la detección ya que están los rostros
-    model_name="Facenet512",
-    distance_metric="cosine",
-    threshold=0.49, # Ajustar este valor de aceptación de detección
-    enforce_detection=True
-)
+## versifica los paquetes instalados
+```powershell
+python versions.py
 ```
