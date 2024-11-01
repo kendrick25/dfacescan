@@ -28,15 +28,14 @@ imutils
 joblib
 ```
 #### Ejecutar en consola, para la instalación de las dependencias:
-```powershell
-pip install -r requirements.txt
-```
-
 >[!NOTE] 
 >Estamos trabajando en la version:
 >```powershell
 >Python 3.10.15
 >```
+```powershell
+pip install -r requirements.txt
+```
 ###### Verifica los paquetes instalados:
 ```powershell
 python versions.py
