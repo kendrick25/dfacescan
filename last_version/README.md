@@ -27,7 +27,7 @@ matplotlib
 imutils
 joblib
 ```
-#### Ejecutar en consola:
+#### Ejecutar en consola, para la instalación de las dependencias:
 ```powershell
 pip install -r requirements.txt
 ```
