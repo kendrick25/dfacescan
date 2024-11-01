@@ -1,6 +1,6 @@
 # Entrenamiento de modelo con estrucura para embeddings entrenado con FaceNet512
  
-Este proyecto utiliza el modelo preentrenado FaceNet512 para generar embeddings faciales y un clasificador SVM para reconocer rostros.
+Este proyecto utiliza el modelo preentrenado FaceNet512 para generar embeddings faciales y un clasificador RandomForestClassifier para reconocer rostros.
 
 ## Estructura del Proyecto
 ```txt
