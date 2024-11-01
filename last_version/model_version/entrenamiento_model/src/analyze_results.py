@@ -42,13 +42,11 @@ def analyze_generate_embeddings_report(report, report_dir):
 def analyze_train_classifier_report(report, report_dir):
     print("\n--- Análisis de Train Classifier Report ---")
     
-    # Extraer la precisión y los reportes de clase
     accuracy = report.get("accuracy", 0)
     class_report = report.get("class_report", {})
     load_time = report.get("load_time_seconds", 0)
     training_time = report.get("training_time_seconds", 0)
 
-    # Verificar dimensiones
     num_classes = len(class_report)
     print(f"Número de clases: {num_classes}")
     
@@ -62,18 +60,16 @@ def analyze_train_classifier_report(report, report_dir):
     for label, metrics in class_report.items():
         print(f"{label}: Precision: {metrics['precision']:.2f}, Recall: {metrics['recall']:.2f}, F1-Score: {metrics['f1-score']:.2f}, Support: {metrics['support']}")
 
-    # Gráfico de métricas
     labels = list(class_report.keys())
     precision = [metrics['precision'] for metrics in class_report.values() if 'precision' in metrics]
     recall = [metrics['recall'] for metrics in class_report.values() if 'recall' in metrics]
     f1_score = [metrics['f1-score'] for metrics in class_report.values() if 'f1-score' in metrics]
 
-    x = np.arange(len(labels))  # la posición de las etiquetas
-    width = 0.25  # el ancho de las barras
+    x = np.arange(len(labels))  
+    width = 0.25  
 
     fig, ax = plt.subplots(figsize=(10, 6))
 
-    # Verificar si hay métricas disponibles antes de graficar
     if precision:
         ax.bar(x - width, precision, width, label='Precisión', color='blue')
     if recall:
@@ -92,7 +88,7 @@ def analyze_train_classifier_report(report, report_dir):
     plt.savefig(plt_path)
     print(f"Gráfico guardado en: {plt_path}")
 
-    # Generar informe de texto en formato Markdown
+    # Generar informe en formato markdown
     with open(os.path.join(report_dir, 'model_analysis.md'), 'w', encoding='utf-8') as f:
         f.write('# Análisis del Modelo\n\n')
         f.write(f'Total de clases: {num_classes}\n\n')
@@ -100,7 +96,7 @@ def analyze_train_classifier_report(report, report_dir):
         f.write(f'Tiempo de carga: {load_time:.2f} segundos\n\n')
         f.write(f'Tiempo de entrenamiento: {training_time:.2f} segundos\n\n')
         
-        f.write('## Precisión por persona:\n')
+        f.write('## Precisión por persona\n')
         for label, metrics in class_report.items():
             if label not in ["macro avg", "weighted avg"]:
                 f.write(f"- **{label}**: Precision: {metrics['precision']:.2f}, Recall: {metrics['recall']:.2f}, F1-Score: {metrics['f1-score']:.2f}\n")
@@ -127,13 +123,20 @@ def analyze_train_classifier_report(report, report_dir):
         # Leyenda de términos
         f.write('## Leyenda de Términos\n\n')
         f.write('| Término      | Descripción                                                                                 |\n')
-        f.write('|---------------|-------------------------------------------------------------------------------------------|\n')
-        f.write(f"| **Precision**    | La proporción de verdaderos positivos sobre el total de positivos predichos.                |\n")
-        f.write(f"| **Recall**       | La proporción de verdaderos positivos sobre el total de positivos reales.                   |\n")
-        f.write(f"| **F1-Score**     | La media armónica entre la precisión y el recall, equilibrando ambas métricas.              |\n")
-        f.write(f"| **Support**      | El número de ocurrencias de cada clase en el conjunto de datos.                             |\n")
-        f.write(f"| **Macro Avg**    | Promedio simple de precisión, recall y F1-Score para cada clase, sin considerar el soporte. |\n")
-        f.write(f"| **Weighted Avg** | Promedio ponderado de precisión, recall y F1-Score, considerando el soporte de cada clase.  |\n")
+        f.write('|--------------|--------------------------------------------------------------------------------------------|\n')
+        f.write('| **Precision**    | La proporción de verdaderos positivos sobre el total de positivos predichos.                |\n')
+        f.write('| **Recall**       | La proporción de verdaderos positivos sobre el total de positivos reales.                   |\n')
+        f.write('| **F1-Score**     | La media armónica entre la precisión y el recall, equilibrando ambas métricas.              |\n')
+        f.write('| **Support**      | El número de ocurrencias de cada clase en el conjunto de datos.                             |\n')
+        f.write('| **Macro Avg**    | Promedio simple de precisión, recall y F1-Score para cada clase, sin considerar el soporte. |\n')
+        f.write('| **Weighted Avg** | Promedio ponderado de precisión, recall y F1-Score, considerando el soporte de cada clase.  |\n')
+
+        # Agregar imágenes
+        f.write('\n## Análisis de Gráficos\n\n')
+        f.write('### Gráfico de Personas Detectadas\n')
+        f.write('![Gráfico de personas detectadas](generate_embeddings_analysis.png)\n\n')
+        f.write('### Análisis del Clasificador por Clase\n')
+        f.write('![Análisis del clasificador](train_classifier_analysis.png)\n\n')
 
 if __name__ == "__main__":
     # Rutas de los informes
