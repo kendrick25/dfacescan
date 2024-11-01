@@ -1,18 +1,4 @@
-## Estructura de carpetas necesarias para el la deteción de forma comparativa con Facenet512 y RetinaFace
-```txt
-prueba_deepface/
-├── data/
-│   ├── scarlett-johansson/
-│   │   ├── scarlett-johansson_rostro_0.jpg
-│   │   ├── scarlett-johansson_rostro_1.jpg
-│   └── Thais/
-│       ├── Thais_rostro_0.jpg
-│       └── Thais_rostro_1.jpg
-├── test/
-│   └── img-00.png
-└── result/   # Esta carpeta debe existir para guardar los resultados
-```
-## Instalación de dependencias
+# Instalación de dependencias
 #### requirements.txt:
 ```txt
 deepface==0.0.93
