@@ -1,4 +1,4 @@
-import json  
+import json   
 import os
 import matplotlib.pyplot as plt
 import numpy as np
@@ -92,28 +92,28 @@ def analyze_train_classifier_report(report, report_dir):
     plt.savefig(plt_path)
     print(f"Gráfico guardado en: {plt_path}")
 
-    # Generar informe de texto
-    with open(os.path.join(report_dir, 'model_analysis.txt'), 'w', encoding='utf-8') as f:
-        f.write('--- Análisis del Modelo ---\n\n')
+    # Generar informe de texto en formato Markdown
+    with open(os.path.join(report_dir, 'model_analysis.md'), 'w', encoding='utf-8') as f:
+        f.write('# Análisis del Modelo\n\n')
         f.write(f'Total de clases: {num_classes}\n\n')
         f.write(f'Precisión del clasificador: {accuracy:.2f}\n\n')
         f.write(f'Tiempo de carga: {load_time:.2f} segundos\n\n')
         f.write(f'Tiempo de entrenamiento: {training_time:.2f} segundos\n\n')
         
-        f.write('Precisión por persona:\n')
+        f.write('## Precisión por persona:\n')
         for label, metrics in class_report.items():
             if label not in ["macro avg", "weighted avg"]:
-                f.write(f"{label}: Precision: {metrics['precision']:.2f}, Recall: {metrics['recall']:.2f}, F1-Score: {metrics['f1-score']:.2f}\n")
+                f.write(f"- **{label}**: Precision: {metrics['precision']:.2f}, Recall: {metrics['recall']:.2f}, F1-Score: {metrics['f1-score']:.2f}\n")
         
         # Agregar las métricas de macro avg y weighted avg
-        f.write('\n--- Promedio Macro y Ponderado ---\n')
+        f.write('\n## Promedio Macro y Ponderado\n')
         macro_avg = class_report.get("macro avg", {})
         weighted_avg = class_report.get("weighted avg", {})
-        f.write(f"Macro Avg - Precision: {macro_avg['precision']:.2f}, Recall: {macro_avg['recall']:.2f}, F1-Score: {macro_avg['f1-score']:.2f}, Support: {macro_avg['support']}\n")
-        f.write(f"Weighted Avg - Precision: {weighted_avg['precision']:.2f}, Recall: {weighted_avg['recall']:.2f}, F1-Score: {weighted_avg['f1-score']:.2f}, Support: {weighted_avg['support']}\n\n")
+        f.write(f"**Macro Avg** - Precision: {macro_avg['precision']:.2f}, Recall: {macro_avg['recall']:.2f}, F1-Score: {macro_avg['f1-score']:.2f}, Support: {macro_avg['support']}\n")
+        f.write(f"**Weighted Avg** - Precision: {weighted_avg['precision']:.2f}, Recall: {weighted_avg['recall']:.2f}, F1-Score: {weighted_avg['f1-score']:.2f}, Support: {weighted_avg['support']}\n\n")
 
         # Evaluación dinámica del modelo
-        f.write('--- Evaluación del Modelo ---\n\n')
+        f.write('## Evaluación del Modelo\n\n')
         avg_precision = np.mean(precision) if precision else 0
         if avg_precision == 1.0:
             f.write('El modelo ha demostrado un rendimiento excepcional en la clasificación de las clases evaluadas.\n\n')
@@ -125,17 +125,15 @@ def analyze_train_classifier_report(report, report_dir):
             f.write('El modelo ha tenido un rendimiento por debajo de las expectativas, con una precisión promedio inferior al 75%.\n\n')
 
         # Leyenda de términos
-        f.write('--- Leyenda de Términos ---\n\n')
-        f.write('-' * 110 + '\n')
-        f.write(f"{'| Término      |':<15} {'Descripción                                                                                 |'}\n")
-        f.write('-' * 110 + '\n')
-        f.write(f"{'| Precision    |':<15} La proporción de verdaderos positivos sobre el total de positivos predichos.                |\n")
-        f.write(f"{'| Recall       |':<15} La proporción de verdaderos positivos sobre el total de positivos reales.                   |\n")
-        f.write(f"{'| F1-Score     |':<15} La media armónica entre la precisión y el recall, equilibrando ambas métricas.              |\n")
-        f.write(f"{'| Support      |':<15} El número de ocurrencias de cada clase en el conjunto de datos.                             |\n")
-        f.write(f"{'| Macro Avg    |':<15} Promedio simple de precisión, recall y F1-Score para cada clase, sin considerar el soporte. |\n")
-        f.write(f"{'| Weighted Avg |':<15} Promedio ponderado de precisión, recall y F1-Score, considerando el soporte de cada clase.  |\n")
-        f.write('-' * 110 + '\n')
+        f.write('## Leyenda de Términos\n\n')
+        f.write('| Término      | Descripción                                                                                 |\n')
+        f.write('|---------------|-------------------------------------------------------------------------------------------|\n')
+        f.write(f"| **Precision**    | La proporción de verdaderos positivos sobre el total de positivos predichos.                |\n")
+        f.write(f"| **Recall**       | La proporción de verdaderos positivos sobre el total de positivos reales.                   |\n")
+        f.write(f"| **F1-Score**     | La media armónica entre la precisión y el recall, equilibrando ambas métricas.              |\n")
+        f.write(f"| **Support**      | El número de ocurrencias de cada clase en el conjunto de datos.                             |\n")
+        f.write(f"| **Macro Avg**    | Promedio simple de precisión, recall y F1-Score para cada clase, sin considerar el soporte. |\n")
+        f.write(f"| **Weighted Avg** | Promedio ponderado de precisión, recall y F1-Score, considerando el soporte de cada clase.  |\n")
 
 if __name__ == "__main__":
     # Rutas de los informes
