@@ -1,20 +1,20 @@
 {
-    "timestamp": "2024-11-01T12:47:16.106212",
+    "timestamp": "2024-11-11T20:08:36.497644",
     "total_images": 58,
     "successful_embeddings": 58,
     "failed_images": 0,
-    "load_time_seconds": 0.1381843090057373,
-    "embedding_time_seconds": 94.4854986667633,
+    "load_time_seconds": 0.01980733871459961,
+    "embedding_time_seconds": 15.467494487762451,
     "embeddings_shape": [
         58,
         512
     ],
     "model_used": "Facenet512",
-    "embeddings_saved_path": "D:\\Nueva carpeta\\Prueba\\dfacescan\\last_version\\model_version\\entrenamiento_model\\models\\embeddings.npy",
-    "labels_saved_path": "D:\\Nueva carpeta\\Prueba\\dfacescan\\last_version\\model_version\\entrenamiento_model\\models\\labels.npy",
+    "embeddings_saved_path": "C:\\Users\\pldel\\Desktop\\dfacescan\\last_version\\model_version\\entrenamiento_model\\models\\embeddings.npy",
+    "labels_saved_path": "C:\\Users\\pldel\\Desktop\\dfacescan\\last_version\\model_version\\entrenamiento_model\\models\\labels.npy",
     "persons_detected": {
-        "KENDRICK": 23,
         "TAHIS": 14,
+        "KENDRICK": 23,
         "MICHELLE": 21
     }
 }

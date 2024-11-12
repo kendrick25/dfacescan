@@ -4,9 +4,9 @@ Total de clases: 5
 
 Precisión del clasificador: 1.00
 
-Tiempo de carga: 0.02 segundos
+Tiempo de carga: 0.01 segundos
 
-Tiempo de entrenamiento: 0.46 segundos
+Tiempo de entrenamiento: 0.13 segundos
 
 ## Precisión por persona
 - **KENDRICK**: Precision: 1.00, Recall: 1.00, F1-Score: 1.00

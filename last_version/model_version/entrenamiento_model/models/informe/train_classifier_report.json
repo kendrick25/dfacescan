@@ -1,10 +1,10 @@
 {
-    "timestamp": "2024-11-01T12:52:25.037021",
+    "timestamp": "2024-11-11T20:08:58.430080",
     "accuracy": 1.0,
-    "load_time_seconds": 0.015577554702758789,
-    "training_time_seconds": 0.46265292167663574,
-    "model_saved_path": "D:\\Nueva carpeta\\Prueba\\dfacescan\\last_version\\model_version\\entrenamiento_model\\models\\face_classifier.pkl",
-    "label_encoder_saved_path": "D:\\Nueva carpeta\\Prueba\\dfacescan\\last_version\\model_version\\entrenamiento_model\\models\\label_encoder.pkl",
+    "load_time_seconds": 0.009874582290649414,
+    "training_time_seconds": 0.13404226303100586,
+    "model_saved_path": "C:\\Users\\pldel\\Desktop\\dfacescan\\last_version\\model_version\\entrenamiento_model\\models\\face_classifier.pkl",
+    "label_encoder_saved_path": "C:\\Users\\pldel\\Desktop\\dfacescan\\last_version\\model_version\\entrenamiento_model\\models\\label_encoder.pkl",
     "class_report": {
         "KENDRICK": {
             "precision": 1.0,
