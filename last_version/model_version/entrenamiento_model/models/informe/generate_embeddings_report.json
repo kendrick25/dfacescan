@@ -1,20 +1,23 @@
 {
-    "timestamp": "2024-11-11T20:08:36.497644",
-    "total_images": 58,
-    "successful_embeddings": 58,
-    "failed_images": 0,
-    "load_time_seconds": 0.01980733871459961,
-    "embedding_time_seconds": 15.467494487762451,
+    "timestamp": "2024-11-13T11:40:39.070024",
+    "total_images": 4985,
+    "successful_embeddings": 4392,
+    "failed_images": 593,
+    "load_time_seconds": 42.347288370132446,
+    "embedding_time_seconds": 2372.845776081085,
     "embeddings_shape": [
-        58,
+        4392,
         512
     ],
     "model_used": "Facenet512",
     "embeddings_saved_path": "C:\\Users\\pldel\\Desktop\\dfacescan\\last_version\\model_version\\entrenamiento_model\\models\\embeddings.npy",
     "labels_saved_path": "C:\\Users\\pldel\\Desktop\\dfacescan\\last_version\\model_version\\entrenamiento_model\\models\\labels.npy",
     "persons_detected": {
-        "TAHIS": 14,
-        "KENDRICK": 23,
-        "MICHELLE": 21
+        "Jeison": 560,
+        "Thais": 592,
+        "Kendrick": 506,
+        "Edward": 1289,
+        "Camilo": 670,
+        "Anibal": 1368
     }
 }
