@@ -4,8 +4,8 @@ import imutils
 from deepface import DeepFace
 
 dataPath = 'data'  # Carpeta para almacenar los rostros procesados
-personsPath = 'persons2'  # Carpeta donde se almacenan las imágenes de las personas
-margin_ratio = 1  # Margen adicional para el área de recorte
+personsPath = 'persons'  # Carpeta donde se almacenan las imágenes de las personas
+margin_ratio = 0  # Margen adicional para el área de recorte
 
 # Iterar sobre cada persona en la carpeta 'persons'
 for personName in os.listdir(personsPath):
