@@ -9,5 +9,3 @@ scipy
 matplotlib
 imutils
 joblib
-cudatoolkit=11.2
-cudnn=8.1.0
