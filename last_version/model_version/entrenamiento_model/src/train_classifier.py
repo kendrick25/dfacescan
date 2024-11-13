@@ -1,4 +1,4 @@
-import joblib 
+import joblib
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
@@ -27,8 +27,8 @@ def train_random_forest_classifier(embeddings, labels):
     test_size = min(0.2, 1 / min(counts))
     X_train, X_val, y_train, y_val = train_test_split(embeddings, y_encoded, test_size=test_size, random_state=42)
 
-    print(f"Tamaño del conjunto de entrenamiento: {len(y_train)}")
-    print(f"Tamaño del conjunto de validación: {len(y_val)}")
+    print(f"Tamaño del conjunto de entrenamiento: {len(X_train)}")
+    print(f"Tamaño del conjunto de validación: {len(X_val)}")
 
     # Entrenar Random Forest
     classifier = RandomForestClassifier(n_estimators=100, random_state=42)
@@ -42,9 +42,9 @@ def train_random_forest_classifier(embeddings, labels):
     # Generar el informe de clasificación
     target_names = label_encoder.inverse_transform(unique_classes)
     class_report = classification_report(
-        y_val, 
-        y_pred, 
-        target_names=target_names, 
+        y_val,
+        y_pred,
+        target_names=target_names,
         output_dict=True
     )
 
@@ -59,7 +59,14 @@ if __name__ == "__main__":
 
     embeddings = np.load(embeddings_path)
     labels = np.load(labels_path)
-    
+
+    # Asegurar que las dimensiones coincidan
+    if len(embeddings) != len(labels):
+        min_length = min(len(embeddings), len(labels))
+        print(f"Ajustando dimensiones: Embeddings = {len(embeddings)}, Labels = {len(labels)}")
+        embeddings = embeddings[:min_length]
+        labels = labels[:min_length]
+
     load_time = time.time() - start_time
     print("Embeddings y etiquetas cargados.")
 
@@ -75,7 +82,7 @@ if __name__ == "__main__":
     # Guardar el clasificador y el codificador de etiquetas
     classifier_path = os.path.join(os.path.dirname(__file__), '../models/face_classifier.pkl')
     label_encoder_path = os.path.join(os.path.dirname(__file__), '../models/label_encoder.pkl')
-    
+
     joblib.dump(classifier, classifier_path)
     joblib.dump(label_encoder, label_encoder_path)
     print("Modelo de clasificador y codificador de etiquetas guardados.")

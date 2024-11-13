@@ -1,24 +1,36 @@
 {
-    "timestamp": "2024-11-11T20:08:58.430080",
+    "timestamp": "2024-11-13T15:23:49.453990",
     "accuracy": 1.0,
-    "load_time_seconds": 0.009874582290649414,
-    "training_time_seconds": 0.13404226303100586,
-    "model_saved_path": "C:\\Users\\pldel\\Desktop\\dfacescan\\last_version\\model_version\\entrenamiento_model\\models\\face_classifier.pkl",
-    "label_encoder_saved_path": "C:\\Users\\pldel\\Desktop\\dfacescan\\last_version\\model_version\\entrenamiento_model\\models\\label_encoder.pkl",
+    "load_time_seconds": 0.015636920928955078,
+    "training_time_seconds": 22.60221219062805,
+    "model_saved_path": "C:\\Users\\kendr\\OneDrive\\Escritorio\\ProyectoIA\\dfacescan\\last_version\\model_version\\entrenamiento_model\\models\\face_classifier.pkl",
+    "label_encoder_saved_path": "C:\\Users\\kendr\\OneDrive\\Escritorio\\ProyectoIA\\dfacescan\\last_version\\model_version\\entrenamiento_model\\models\\label_encoder.pkl",
     "class_report": {
-        "KENDRICK": {
+        "Anibal": {
             "precision": 1.0,
             "recall": 1.0,
             "f1-score": 1.0,
             "support": 3.0
         },
-        "MICHELLE": {
+        "Camilo": {
             "precision": 1.0,
             "recall": 1.0,
             "f1-score": 1.0,
             "support": 1.0
         },
-        "TAHIS": {
+        "Edward": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 1.0
+        },
+        "Jeison": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 3.0
+        },
+        "Kendrick": {
             "precision": 1.0,
             "recall": 1.0,
             "f1-score": 1.0,
@@ -28,13 +40,13 @@
             "precision": 1.0,
             "recall": 1.0,
             "f1-score": 1.0,
-            "support": 5.0
+            "support": 9.0
         },
         "weighted avg": {
             "precision": 1.0,
             "recall": 1.0,
             "f1-score": 1.0,
-            "support": 5.0
+            "support": 9.0
         }
     }
 }
