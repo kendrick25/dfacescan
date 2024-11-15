@@ -2,6 +2,6 @@
 Proyecto de reconocimiento de estudiantes para asistencia autónoma.
 
 ## Flujo de Trabajo
-![Diagrama de Flujo](ImagenesPrueba/flujo.png)
+![Diagrama de Flujo](imgs_repo/flujo.png)
 
 ---
