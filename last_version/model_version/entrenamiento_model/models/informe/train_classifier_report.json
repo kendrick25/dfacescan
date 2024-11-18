@@ -1,10 +1,10 @@
 {
-    "timestamp": "2024-11-13T15:23:49.453990",
+    "timestamp": "2024-11-18T09:15:48.773217",
     "accuracy": 1.0,
-    "load_time_seconds": 0.015636920928955078,
-    "training_time_seconds": 22.60221219062805,
-    "model_saved_path": "C:\\Users\\kendr\\OneDrive\\Escritorio\\ProyectoIA\\dfacescan\\last_version\\model_version\\entrenamiento_model\\models\\face_classifier.pkl",
-    "label_encoder_saved_path": "C:\\Users\\kendr\\OneDrive\\Escritorio\\ProyectoIA\\dfacescan\\last_version\\model_version\\entrenamiento_model\\models\\label_encoder.pkl",
+    "load_time_seconds": 0.011599540710449219,
+    "training_time_seconds": 5.272190809249878,
+    "model_saved_path": "C:\\Users\\pldel\\Desktop\\dfacescan\\last_version\\model_version\\entrenamiento_model\\models\\face_classifier.pkl",
+    "label_encoder_saved_path": "C:\\Users\\pldel\\Desktop\\dfacescan\\last_version\\model_version\\entrenamiento_model\\models\\label_encoder.pkl",
     "class_report": {
         "Anibal": {
             "precision": 1.0,

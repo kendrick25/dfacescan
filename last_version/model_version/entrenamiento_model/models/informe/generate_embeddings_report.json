@@ -1,10 +1,10 @@
 {
-    "timestamp": "2024-11-13T11:40:39.070024",
+    "timestamp": "2024-11-18T09:14:52.865292",
     "total_images": 4985,
     "successful_embeddings": 4392,
     "failed_images": 593,
-    "load_time_seconds": 42.347288370132446,
-    "embedding_time_seconds": 2372.845776081085,
+    "load_time_seconds": 26.145668506622314,
+    "embedding_time_seconds": 1532.0543313026428,
     "embeddings_shape": [
         4392,
         512
@@ -13,11 +13,11 @@
     "embeddings_saved_path": "C:\\Users\\pldel\\Desktop\\dfacescan\\last_version\\model_version\\entrenamiento_model\\models\\embeddings.npy",
     "labels_saved_path": "C:\\Users\\pldel\\Desktop\\dfacescan\\last_version\\model_version\\entrenamiento_model\\models\\labels.npy",
     "persons_detected": {
-        "Jeison": 560,
+        "Anibal": 1368,
+        "Camilo": 670,
+        "Edward": 1289,
         "Thais": 592,
         "Kendrick": 506,
-        "Edward": 1289,
-        "Camilo": 670,
-        "Anibal": 1368
+        "Jeison": 560
     }
 }
