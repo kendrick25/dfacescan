@@ -9,6 +9,7 @@ prueba_deepface/
 │   └── img-00.png
 └── test/   # Carpeta para la imagen de entrada
 │   └── img-00.png
+└── test_models.py
 ```
 
 #### Ejecutar en consola, para la instalación de las dependencias:
